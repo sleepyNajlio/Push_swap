@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 13:13:54 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/07/13 13:22:43 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/07/19 04:44:24 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,19 @@ void	ft_lstadd_back(t_list **lst, t_list *new, int index)
 	tmp->next = new;
 	new->index = index;
 	new->next = *lst;
+}
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!lst || !new)
+		return ;
+	if (!(*lst))
+	{
+		*lst = new;
+		(*lst)->next = *lst;
+		return ;
+	}
+	new->next = *lst;
+	ft_lstlast(*lst)->next = new;
+	*lst = new;
 }
