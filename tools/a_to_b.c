@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 21:59:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/07/19 07:09:33 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/07/29 17:18:28 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	check_swap(t_list **stack, int markup_mode)
 	return (0);
 }
 
-void	moves_a(int *moves, int phase, int move)
+void	moves_a(int *moves, int phase, int move, int dir)
 {
 	if (phase == 1)
 	{
@@ -73,8 +73,10 @@ void	moves_a(int *moves, int phase, int move)
 			write(1,"sa\n", 3);
 		if (move == 2)
 			write(1, "pb\n", 3);
-		if (move == 3)
+		if (move == 3 && !dir)
 			write(1, "ra\n", 3);
+		if (move == 3 && dir)
+			write(1, "rra\n", 4);
 	}
 	(*moves)++;
 }
@@ -90,18 +92,18 @@ t_list	*a_to_b(t_list **stack_a, int markup_mode, int *moves, int phase)
 		if (check_swap(stack_a, markup_mode))
 		{
 			swap(stack_a);
-			moves_a(moves, phase, 1);
+			moves_a(moves, phase, 1, 0);
 			markup(stack_a, markup_mode);
 		}
 		else if ((*stack_a)->markup == 0)
 		{
 			push(stack_a, &stack_b);
-			moves_a(moves, phase, 2);
+			moves_a(moves, phase, 2, 0);
 		}
 		else
 		{
 			rotate(stack_a, 0);
-			moves_a(moves, phase, 3);
+			moves_a(moves, phase, 3, 0);
 		}
 	}	
 	return (stack_b);

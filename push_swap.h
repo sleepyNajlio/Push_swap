@@ -32,5 +32,12 @@ void	push(t_list	**stack_1, t_list **stack_2);
 void	swap(t_list	**stack);
 void	rotate(t_list **stack, int d);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+void	b_to_a(t_list **stack_a, t_list **stack_b, int *moves, int phase);
+void	moves_a(int *moves, int phase, int move, int dir);
+int		direction(t_list **stack, int index);
+int		choose_stack(t_list **stack_a, t_list **stack_b);
+int		prepare_a(t_list **stack_a, int b_index);
+void	rr(t_list **stack_a, t_list **stack_b, int dir);
+void	move(t_list **stack_a, t_list **stack_b, int phase, int *moves);
 
 #endif
