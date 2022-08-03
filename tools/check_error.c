@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 01:46:19 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/07/13 10:33:51 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/04 00:45:22 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
-	else
-		return (0);
+	return (0);
 }
 
 int	ft_isnum(char *num)
@@ -53,7 +52,7 @@ int	out_of_range(char *num)
 	return (0);
 }
 
-void	check_error(int ac, char **av)
+int	check_error(int ac, char **av)
 {
 	int i;
 	
@@ -62,10 +61,10 @@ void	check_error(int ac, char **av)
 	{
 		if (ft_isnum(av[i]) || dupcheck(av, av[i], i) || out_of_range(av[i]))
 		{
-			write(1, "Error\n", 7);
-			exit (1);
+			write(2, "Error\n", 6);
+			return (0);
 		}
 		i++;
 	}
-	return ;
+	return (1);
 }

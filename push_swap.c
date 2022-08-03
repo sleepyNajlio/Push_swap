@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 01:37:38 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/07/29 17:27:35 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/02 17:20:03 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int test_markup(t_array *arr, int markup_mode, char **av)
 		rotate(&stack_a, dir);
 		moves_a(&moves, 0, 3, dir);
 	}
-	free(stack_a);
+	free_stack(stack_a);
 	return (moves);
 }
 
@@ -65,11 +65,11 @@ int	main(int ac, char **av)
 	int		moves;
 	int		dir;
 	
+	//./pu	atexit(leak_report);
 	moves = 0;
 	arr = (t_array *)malloc(sizeof(t_array));
-	if (ac > 2)
+	if (check_error(ac, av) && ac > 2)
 	{
-		check_error(ac, av);
 		create_arr(ac, av, &arr);
 		stack_a = indexation(arr, av);
 		stack_b = a_to_b(&stack_a, test(arr, av), &moves, 1);
@@ -80,10 +80,10 @@ int	main(int ac, char **av)
 			rotate(&stack_a, dir);
 			moves_a(&moves, 1, 3, dir);
 		}
-		free(stack_a);
-		free(arr);
+		free_stack(stack_a);
 	}
-	// system("leaks ./push_swap");
+	free_array(arr);
+	//system("leaks push_swap");
 	return (0);
 	
 }

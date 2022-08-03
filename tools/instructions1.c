@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 10:35:12 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/07/24 10:38:49 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/02 01:40:13 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	push(t_list	**stack_1, t_list **stack_2)
 	temp = *stack_1;
 	(*stack_1) = (*stack_1)->next;
 	ft_lstlast(temp)->next = *stack_1;
-	//free (temp);
+	free(temp);
 }
 
 void	rotate(t_list **stack, int d)

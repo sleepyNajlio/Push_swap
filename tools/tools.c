@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 09:56:58 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/07/29 17:45:40 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/02 15:40:30 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,32 @@ void	move(t_list **stack_a, t_list **stack_b, int phase, int *moves)
 		rotate(stack_b, b_d);
 		moves_b(moves, phase, 2, b_d);
 	}
+}
+
+void	free_stack(t_list *stack)
+{
+	t_list	*temp;
+	int		start;
+	t_list	*head;
+
+	start = 0;
+	head = stack;
+	while (head != stack || !start)
+	{
+		start = 1;
+		temp = head->next;
+		free(head);
+		head = temp;
+	}
+}
+
+void	free_array(t_array *arr)
+{
+	int *tab;
+	if (arr->arr)
+	{
+		tab = arr->arr;
+		free(tab);
+	}
+	free(arr);
 }

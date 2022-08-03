@@ -3,6 +3,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+//# include "leak_Hunter/leak_hunter.h"
 
 typedef struct s_list
 {
@@ -19,7 +20,7 @@ typedef	struct s_array
 }	t_array;
 
 int		ft_atoi(const char *str);
-void	check_error(int ac, char **av);
+int		check_error(int ac, char **av);
 void	create_arr(int ac, char **av, t_array **arr);
 void	ft_lstadd_back(t_list **lst, t_list *new, int index);
 int		ft_lstsize(t_list *lst);
@@ -39,5 +40,8 @@ int		choose_stack(t_list **stack_a, t_list **stack_b);
 int		prepare_a(t_list **stack_a, int b_index);
 void	rr(t_list **stack_a, t_list **stack_b, int dir);
 void	move(t_list **stack_a, t_list **stack_b, int phase, int *moves);
+void	free_stack(t_list *stack);
+void	free_array(t_array *arr);
+
 
 #endif
