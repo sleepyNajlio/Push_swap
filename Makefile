@@ -2,7 +2,8 @@ NAME = push_swap
 
 SRC = push_swap.c tools/check_error.c tools/ft_atoi.c tools/array.c\
 	tools/indexation.c tools/lists.c tools/markup.c tools/a_to_b.c\
-	tools/instructions1.c tools/tools.c tools/b_to_a.c
+	tools/instructions1.c tools/tools.c tools/b_to_a.c tools/tools1.c\
+	tools/ft_split.c tools/parsing.c
 
 OBJ = $(SRC:.c=.o)
 

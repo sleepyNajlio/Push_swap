@@ -26,7 +26,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new, int index);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstnew(int content);
-t_list	*indexation(t_array *arr, char **av);
+t_list	*indexation(int ac, char **av);
 void	markup(t_list **stack, int markup_mode);
 t_list	*a_to_b(t_list **stack_a, int markup_mode, int *moves, int phase);
 void	push(t_list	**stack_1, t_list **stack_2);
@@ -42,6 +42,13 @@ void	rr(t_list **stack_a, t_list **stack_b, int dir);
 void	move(t_list **stack_a, t_list **stack_b, int phase, int *moves);
 void	free_stack(t_list *stack);
 void	free_array(t_array *arr);
-
+int		count(char **s);
+char	**parsing(char **av);
+char	**ft_split(char const *s, char c);
+char	*ft_strdup(char *str);
+void	*ft_memmove(void *dst,const void *src, size_t len);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+int 	test_markups(int markup_mode, char **nums);
+int 	tests(char **nums);
 
 #endif

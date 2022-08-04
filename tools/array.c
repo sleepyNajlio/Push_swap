@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 10:35:15 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/07/31 20:20:27 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/04 01:55:11 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	sort_array(t_array *arr)
 		else
 			i++;
 	}
-
 }
 
 void	create_arr(int ac, char **av, t_array **arr)

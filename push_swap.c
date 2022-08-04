@@ -6,13 +6,13 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 01:37:38 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/02 17:20:03 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/04 04:18:39 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int test_markup(t_array *arr, int markup_mode, char **av)
+int test_markups(int markup_mode, char **nums)
 {
 
 	t_list	*stack_a;
@@ -21,7 +21,7 @@ int test_markup(t_array *arr, int markup_mode, char **av)
 	int		dir;
 	
 	moves = 0;
-	stack_a = indexation(arr,av);
+	stack_a = indexation(count(nums), nums);
 	stack_b = a_to_b(&stack_a, markup_mode, &moves, 0);
 	b_to_a(&stack_a, &stack_b, &moves, 0);
 	dir = direction(&stack_a, 0);
@@ -35,7 +35,7 @@ int test_markup(t_array *arr, int markup_mode, char **av)
 }
 
 
-int test(t_array *arr, char **av)
+int tests(char **nums)
 {
 	int	i;
 	int	moves;
@@ -46,7 +46,7 @@ int test(t_array *arr, char **av)
 	moves = 10000;
 	while(i < 2)
 	{
-		test = test_markup(arr, i, av);
+		test = test_markups(i, nums);
 		if (test < moves)
 		{
 			moves = test;
@@ -61,18 +61,17 @@ int	main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	t_array *arr;
 	int		moves;
 	int		dir;
+	char	**nums;
 	
-	//./pu	atexit(leak_report);
 	moves = 0;
-	arr = (t_array *)malloc(sizeof(t_array));
-	if (check_error(ac, av) && ac > 2)
+	(void)ac;
+	nums = parsing(av);
+	if (check_error(count(nums), nums) && count(nums) > 2)
 	{
-		create_arr(ac, av, &arr);
-		stack_a = indexation(arr, av);
-		stack_b = a_to_b(&stack_a, test(arr, av), &moves, 1);
+		stack_a = indexation(count(nums), nums);
+		stack_b = a_to_b(&stack_a, tests(nums), &moves, 1);
 		b_to_a(&stack_a, &stack_b, &moves, 1);
 		dir = direction(&stack_a, 0);
 		while (stack_a->content)
@@ -82,7 +81,6 @@ int	main(int ac, char **av)
 		}
 		free_stack(stack_a);
 	}
-	free_array(arr);
 	//system("leaks push_swap");
 	return (0);
 	

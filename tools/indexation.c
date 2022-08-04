@@ -6,33 +6,73 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 12:50:36 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/07/13 13:57:41 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/04 03:30:25 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*indexation(t_array *arr, char **av)
+int	*convert(int ac, char **av)
 {
-	t_list	*stack;
+	int *tab;
 	int	i;
-	int j;
-
-	i = 1;
-	stack = 0;
+	
+	i = 0;
+	tab = malloc(sizeof(int) * (ac - 1));
 	while (av[i])
 	{
-		j = 0;
-		while (j < arr->size)
-		{
-			if (ft_atoi(av[i]) == arr->arr[j])
-			{
-				ft_lstadd_back(&stack, ft_lstnew(j), i - 1);
-				break;
-			}
-			j++;
-		}
+		tab[i] = ft_atoi(av[i]);
 		i++;
 	}
-	return (stack);
+	return (tab);
+}
+
+int	*sort(int argc, int *numbers)
+{
+	int	i;
+	int	tmp;
+
+	i = 0;
+	while (i < argc - 2)
+	{
+		if (numbers[i] > numbers[i + 1])
+		{
+			tmp = numbers[i];
+			numbers[i] = numbers[i + 1];
+			numbers[i + 1] = tmp;
+			i = 0;
+		}
+		else
+			i++;
+	}
+	return (numbers);
+}
+
+t_list	*indexation(int ac, char **av)
+{
+	int		i;
+	int		j;
+	t_list	*stack_a;
+	int		*numbers;
+
+	stack_a = 0;
+	numbers = convert(ac, av);
+	numbers = sort(ac, numbers);
+	j = 1;
+	while (av[j])
+	{
+		i = 0;
+		while (i < ac - 1)
+		{
+			if (ft_atoi(av[j]) == numbers[i])
+			{
+				ft_lstadd_back(&stack_a, ft_lstnew(i), j - 1);
+				break ;
+			}
+			i++;
+		}
+		j++;
+	}
+	free(numbers);
+	return (stack_a);
 }
