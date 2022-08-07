@@ -6,18 +6,34 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 06:38:04 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/02 00:23:47 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 21:03:06 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	prepare_a(t_list **stack_a, int b_index)
+int	max(t_list *head, t_list **stack_a)
 {
 	int	start;
-	int index;
+	int	index;
+
+	start = 0;
+	while (head != *stack_a || !start)
+	{
+		start = 1;
+		if (head->content > head->next->content)
+			index = head->next->content;
+		head = head->next;
+	}
+	return (index);
+}
+
+int	prepare_a(t_list **stack_a, int b_index)
+{
+	int		start;
+	int		index;
 	t_list	*head;
-	
+
 	start = 0;
 	head = *stack_a;
 	index = 2147483647;
@@ -30,14 +46,7 @@ int	prepare_a(t_list **stack_a, int b_index)
 	}
 	if (index == 2147483647)
 	{
-		start = 0;
-		while (head != *stack_a || !start)
-		{
-			start = 1;
-			if (head->content > head->next->content)
-				index = head->next->content;
-			head = head->next;
-		}
+		index = max(head, stack_a);
 	}
 	return (index);
 }
@@ -48,10 +57,10 @@ int	choose_stack_h(t_list **stack_a, t_list **stack_b, t_list *temp)
 	t_list	*stack;
 	int		a;
 	int		d;
-	
+
 	m = 0;
 	stack = temp;
-	d = direction(&stack,(*stack_b)->content);
+	d = direction(&stack, (*stack_b)->content);
 	while (stack != *stack_b)
 	{
 		rotate(&stack, d);
@@ -75,7 +84,7 @@ int	choose_stack(t_list **stack_a, t_list **stack_b)
 	int		start;
 	int		i;
 	int		moves;
-	
+
 	temp = *stack_b;
 	index = temp->content;
 	start = 0;
@@ -96,7 +105,7 @@ int	choose_stack(t_list **stack_a, t_list **stack_b)
 
 void	b_to_a(t_list **stack_a, t_list **stack_b, int *moves, int phase)
 {
-	int n;
+	int	n;
 	int	index;
 
 	if (*stack_b)

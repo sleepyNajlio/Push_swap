@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 10:35:12 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/02 01:40:13 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 20:52:53 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	push(t_list	**stack_1, t_list **stack_2)
 {
 	t_list	*temp;
+
 	ft_lstadd_front(stack_2, ft_lstnew((*stack_1)->content));
 	temp = *stack_1;
 	(*stack_1) = (*stack_1)->next;
@@ -33,7 +34,7 @@ void	rotate(t_list **stack, int d)
 void	swap(t_list	**stack)
 {
 	int	temp;
-	
+
 	temp = (*stack)->next->content;
 	(*stack)->next->content = (*stack)->content;
 	(*stack)->content = temp;

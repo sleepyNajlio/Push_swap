@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 22:13:05 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/07/19 02:56:31 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 20:47:14 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_list	*markup_head(t_list *stack, int size, int markup_mode)
 	int		start;
 	int		j;
 	int		i;
-	
+
 	m_h = stack;
 	temp = stack;
 	start = 0;
@@ -89,7 +89,7 @@ void	markup(t_list **stack, int markup_mode)
 	(*stack)->markup = 1;
 	while (--size)
 	{
-		(*stack) = (*stack)->next;;
+		(*stack) = (*stack)->next;
 		if (check_markup(m_h->content, (*stack)->content, markup_mode))
 		{
 			m_h = (*stack);

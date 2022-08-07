@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 21:59:40 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/07/31 23:33:31 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 20:51:20 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	check_0(t_list *stack)
 {
-	t_list *temp;
-	int	start;
+	t_list	*temp;
+	int		start;
 
 	temp = stack;
 	start = 0;
@@ -26,7 +26,7 @@ int	check_0(t_list *stack)
 		temp = temp->next;
 	}
 	if (temp->markup == 0)
-			return (1);
+		return (1);
 	return (0);
 }
 
@@ -51,7 +51,7 @@ int	count_markups(t_list **stack)
 
 int	check_swap(t_list **stack, int markup_mode)
 {
-	int a;
+	int	a;
 	int	b;
 
 	a = count_markups(stack);
@@ -70,7 +70,7 @@ void	moves_a(int *moves, int phase, int move, int dir)
 	if (phase == 1)
 	{
 		if (move == 1)
-			write(1,"sa\n", 3);
+			write(1, "sa\n", 3);
 		if (move == 2)
 			write(1, "pb\n", 3);
 		if (move == 3 && !dir)
@@ -83,8 +83,8 @@ void	moves_a(int *moves, int phase, int move, int dir)
 
 t_list	*a_to_b(t_list **stack_a, int markup_mode, int *moves, int phase)
 {
-	t_list *stack_b;
-	
+	t_list	*stack_b;
+
 	stack_b = 0;
 	markup(stack_a, markup_mode);
 	while (check_0(*stack_a))

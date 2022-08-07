@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 01:46:19 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/07 19:19:09 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 20:49:09 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_isdigit(int c)
 
 int	ft_isnum(char *num)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (num[i])
@@ -36,7 +36,7 @@ int	ft_isnum(char *num)
 int	dupcheck(char **av, char *num, int i)
 {
 	i--;
-	while(i)
+	while (i)
 	{
 		if (ft_atoi(av[i]) == ft_atoi(num))
 			return (1);
@@ -54,8 +54,8 @@ int	out_of_range(char *num)
 
 int	check_error(int ac, char **av)
 {
-	int i;
-	
+	int	i;
+
 	i = 1;
 	while (i < ac && av[i])
 	{

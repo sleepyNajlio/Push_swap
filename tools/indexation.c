@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 12:50:36 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/07 18:34:29 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 21:03:27 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	*convert(int ac, char **av)
 {
-	int *tab;
+	int	*tab;
 	int	i;
-	
+
 	i = 0;
 	tab = malloc(sizeof(int) * (ac - 1));
 	while (av[i + 1])

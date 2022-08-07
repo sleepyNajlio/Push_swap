@@ -6,11 +6,11 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 02:38:04 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/04 04:31:01 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 20:53:22 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.c"
+#include "../push_swap.h"
 
 int	number_of_strings(char const *s, char c)
 {
@@ -95,4 +95,3 @@ char	**ft_split(char const *s, char c)
 	ft_split_1(s, c, x, n);
 	return (x);
 }
-
