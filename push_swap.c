@@ -6,20 +6,19 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 01:37:38 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/07 18:09:25 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 20:30:56 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int test_markups(int markup_mode, char **nums)
+int	test_markups(int markup_mode, char **nums)
 {
-
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		moves;
 	int		dir;
-	
+
 	moves = 0;
 	stack_a = indexation(count(nums), nums);
 	stack_b = a_to_b(&stack_a, markup_mode, &moves, 0);
@@ -34,17 +33,16 @@ int test_markups(int markup_mode, char **nums)
 	return (moves);
 }
 
-
-int tests(char **nums)
+int	tests(char **nums)
 {
 	int	i;
 	int	moves;
 	int	test;
 	int	chosen;
-	
+
 	i = 0;
 	moves = 10000;
-	while(i < 2)
+	while (i < 2)
 	{
 		test = test_markups(i, nums);
 		if (test < moves)
@@ -64,16 +62,11 @@ int	main(int ac, char **av)
 	int		moves;
 	int		dir;
 	char	**nums;
-	
+
 	moves = 0;
 	(void)ac;
 	nums = parsing(av);
 	dir = 0;
-	// while (dir < count(nums))
-	// {
-	// 	printf("%s \n", nums[dir]);
-	// 	dir++;
-	// }
 	if (check_error(count(nums), nums) && count(nums) > 2)
 	{
 		stack_a = indexation(count(nums), nums);
@@ -88,7 +81,5 @@ int	main(int ac, char **av)
 		free_stack(stack_a);
 	}
 	free_array(nums);
-	//system("leaks push_swap");
 	return (0);
-	
 }
