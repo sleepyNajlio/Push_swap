@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRC = tools/check_error.c tools/ft_atoi.c tools/array.c tools/ft_split.c\
+SRC = tools/check_error.c tools/ft_atoi.c tools/ft_split.c\
 	tools/indexation.c tools/lists.c tools/markup.c tools/a_to_b.c\
 	tools/instructions1.c tools/tools.c tools/b_to_a.c tools/tools1.c\
 	tools/parsing.c

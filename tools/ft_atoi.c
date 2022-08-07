@@ -6,13 +6,13 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 01:41:58 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/02 17:41:35 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 19:15:59 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static unsigned long long	writer(const char *str, int i, int sign)
+long long	writer(const char *str, int i, int sign)
 {
 	unsigned long long	res;
 
@@ -32,7 +32,7 @@ static unsigned long long	writer(const char *str, int i, int sign)
 	return (res * sign);
 }
 
-int	ft_atoi(const char *str)
+long long	ft_atoi(const char *str)
 {
 	int					i;
 	int					p;

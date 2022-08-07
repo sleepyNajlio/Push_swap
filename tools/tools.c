@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 09:56:58 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/02 15:40:30 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 18:03:56 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,13 +105,13 @@ void	free_stack(t_list *stack)
 	}
 }
 
-void	free_array(t_array *arr)
+void	free_array(char **nums)
 {
-	int *tab;
-	if (arr->arr)
-	{
-		tab = arr->arr;
-		free(tab);
-	}
-	free(arr);
+	int	i;
+
+	i = 0;
+	while (nums[i])
+		free(nums[i++]);
+	free(nums[i]);
+	free(nums);
 }

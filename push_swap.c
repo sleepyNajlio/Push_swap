@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 01:37:38 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/04 04:18:39 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 18:09:25 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,12 @@ int	main(int ac, char **av)
 	moves = 0;
 	(void)ac;
 	nums = parsing(av);
+	dir = 0;
+	// while (dir < count(nums))
+	// {
+	// 	printf("%s \n", nums[dir]);
+	// 	dir++;
+	// }
 	if (check_error(count(nums), nums) && count(nums) > 2)
 	{
 		stack_a = indexation(count(nums), nums);
@@ -81,6 +87,7 @@ int	main(int ac, char **av)
 		}
 		free_stack(stack_a);
 	}
+	free_array(nums);
 	//system("leaks push_swap");
 	return (0);
 	

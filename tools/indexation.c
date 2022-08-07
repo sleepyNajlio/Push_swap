@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 12:50:36 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/04 05:29:28 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/07 18:34:29 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	*convert(int ac, char **av)
 	
 	i = 0;
 	tab = malloc(sizeof(int) * (ac - 1));
-	while (av[i])
+	while (av[i + 1])
 	{
-		tab[i] = ft_atoi(av[i]);
+		tab[i] = ft_atoi(av[i + 1]);
 		i++;
 	}
 	return (tab);
