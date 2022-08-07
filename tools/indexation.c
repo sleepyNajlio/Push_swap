@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 12:50:36 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/04 03:30:25 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/04 05:29:28 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	*convert(int ac, char **av)
 	return (tab);
 }
 
-int	*sort(int argc, int *numbers)
+int	*sort(int ac, int *numbers)
 {
 	int	i;
 	int	tmp;
 
 	i = 0;
-	while (i < argc - 2)
+	while (i < ac - 2)
 	{
 		if (numbers[i] > numbers[i + 1])
 		{
