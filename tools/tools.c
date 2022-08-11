@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 09:56:58 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/07 21:06:03 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/11 04:14:28 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ void	free_array(char **nums)
 	int	i;
 
 	i = 0;
+	if (!nums)
+		return ;
 	while (nums[i])
 		free(nums[i++]);
 	free(nums[i]);
