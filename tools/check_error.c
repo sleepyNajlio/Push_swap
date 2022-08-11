@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 01:46:19 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/07 20:49:09 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/11 21:46:29 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	ft_isnum(char *num)
 	int	i;
 
 	i = 0;
+	if ((num[i] == '-' || num[i] == '+') && ft_isdigit(num[i + 1]))
+		i++;
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]))

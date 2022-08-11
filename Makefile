@@ -23,7 +23,8 @@ $(NAME): $(OBJ) push_swap.o
 all: $(NAME)
 
 $(B_NAME): $(OBJ) $(B_OBJ)
-	cc $(CFLAGS) $(OBJ) $(B_OBJ) -o $(B_NAME)
+	@cc $(CFLAGS) $(OBJ) $(B_OBJ) -o $(B_NAME)
+	@echo "✅🤖✅"
 
 bonus: $(B_NAME)
 
