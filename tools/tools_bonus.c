@@ -6,7 +6,7 @@
 /*   By: nloutfi <nloutfi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 17:09:47 by nloutfi           #+#    #+#             */
-/*   Updated: 2022/08/11 06:45:48 by nloutfi          ###   ########.fr       */
+/*   Updated: 2022/08/11 19:48:19 by nloutfi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_words(char **instructions)
 	int	i;
 
 	i = 0;
-	while (instructions[i])
+	while (instructions && instructions[i])
 	{
 		if (!ft_strncmp(instructions[i], "sa", 3)
 			|| !ft_strncmp(instructions[i], "ra", 3)
